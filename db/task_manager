@@ -1,9 +1,6 @@
 ---
 tasks:
 - id: 1
-  title: Make Cookies
-  description: Chocolate chip cookies are so delicious. I am so hungry.
-- id: 2
-  title: Eat Cookies
-  description: Now I have no more cookies!
-total: 2
+  title: Garbage
+  description: Take out the trash.
+total: 1
