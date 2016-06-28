@@ -2,7 +2,17 @@
   <h1><%= @task.title %> <br /> <small> <%= @task.description %> </h1>
 </div>
 
-<div class="col-md-12 text-right">
+<div class="col-md-1 text-left">
   <a href="/tasks/<%= @task.id %>/edit"><button type="button" class="btn btn-primary">Edit Task</button></a>
+</div>
+
+<div class="col-md-9 text-left">
+  <form action="/tasks/<%= @task.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="DELETE" />
+    <button type="submit" class="btn btn-danger">Delete Task</button>
+  </form>
+</div>
+
+<div class="col-md-2 text-right">
   <a href="/tasks"><button type="button" class="btn btn-default">Task Index</button></a>
 </div>

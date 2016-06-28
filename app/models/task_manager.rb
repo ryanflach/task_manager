@@ -42,4 +42,11 @@ class TaskManager
       target_task["description"] = task[:description]
     end
   end
+
+  def destroy(id)
+    database.transaction do
+      database['tasks'].delete_if { |task| task['id'] == id }
+    end
+  end
+
 end

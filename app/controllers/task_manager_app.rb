@@ -42,6 +42,11 @@ class TaskManagerApp < Sinatra::Base
     redirect '/tasks'
   end
 
+  delete '/tasks/:id/delete' do |id|
+    task_manager.destroy(id.to_i)
+    redirect '/tasks'
+  end
+
   def task_manager
     database = YAML::Store.new('db/task_manager')
     @task_manager ||= TaskManager.new(database)
