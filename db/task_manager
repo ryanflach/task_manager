@@ -3,4 +3,7 @@ tasks:
 - id: 1
   title: Garbage
   description: Take out the trash.
-total: 1
+- id: 2
+  title: Wash Car
+  description: Wash your car (that you don't have)
+total: 2
