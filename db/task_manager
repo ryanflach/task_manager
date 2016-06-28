@@ -6,4 +6,7 @@ tasks:
 - id: 2
   title: Wash Car
   description: Wash your car (that you don't have)
-total: 2
+- id: 3
+  title: Mow the lawn
+  description: But you live in an apartment!
+total: 3
