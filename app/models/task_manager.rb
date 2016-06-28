@@ -34,4 +34,12 @@ class TaskManager
   def find(id)
     Task.new(raw_task(id))
   end
+
+  def update(id, task)
+    database.transaction do
+      target_task = database['tasks'].find { |data| data['id'] == id }
+      target_task["title"] = task[:title]
+      target_task["description"] = task[:description]
+    end
+  end
 end

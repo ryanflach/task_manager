@@ -1,9 +1,10 @@
 ---
 tasks:
 - id: 1
-  title: Take out the trash
-  description: Take out the garbage.
+  title: Add ability to edit tasks (You've done it!)!!
+  description: Create the new view, add logic to be able to modify (You did this!)!!
 - id: 2
-  title: Test
-  description: Test task
+  title: Add ability to delete tasks
+  description: 'Create logic that will modify the database and adjust the id # of
+    existing tasks, if needed.'
 total: 2

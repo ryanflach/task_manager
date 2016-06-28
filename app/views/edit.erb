@@ -1,8 +1,9 @@
 <div class="col-md-12 text-center">
-  <h1>Editing <%= @task.title %></h1>
+  <h1>Editing Task #<%= @task.id %></h1>
 </div>
 
-<form action="/tasks" method="post">
+<form action="/tasks/<%= @task.id %>" method="post">
+  <input type="hidden" name="_method" value="PUT" />
   <div class="form-group">
     <label for="task">Task</label>
     <input type="text" name="task[title]" class="form-control" value="<%= @task.title %>" required="required" />
@@ -11,6 +12,6 @@
     <label for="description">Description</label>
     <textarea name="task[description]" class="form-control" required="required" ><%= @task.description %></textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Edit Task</button>
   <a href="/tasks"><button type="button" class="btn btn-default">Cancel</button></a>
 </form>
