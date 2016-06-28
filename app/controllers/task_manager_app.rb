@@ -27,6 +27,11 @@ class TaskManagerApp < Sinatra::Base
     erb :show
   end
 
+  get '/tasks/:id/edit' do |id|
+    @task = task_manager.find(id.to_i)
+    erb :edit
+  end
+
   def task_manager
     database = YAML::Store.new('db/task_manager')
     @task_manager ||= TaskManager.new(database)
