@@ -1,4 +1,5 @@
 body {
   background-image: url("/images/tree_bark.png");
   background-color: rgba(123, 128, 194, .4);
+  background-blend-mode: screen;
 }
