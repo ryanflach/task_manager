@@ -12,7 +12,7 @@ class TaskManagerApp < Sinatra::Base
   get '/tasks' do
     @tasks = task_manager.all
     if @tasks.empty?
-      erb :dashboard
+      redirect '/'
     else
       erb :index
     end
