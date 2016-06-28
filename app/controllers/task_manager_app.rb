@@ -4,6 +4,7 @@ class TaskManagerApp < Sinatra::Base
   set :root, File.expand_path("..", __dir__)
 
   get '/' do
+    @tasks = task_manager.all
     erb :dashboard
   end
 

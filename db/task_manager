@@ -1,12 +1,9 @@
 ---
 tasks:
 - id: 1
-  title: Garbage
-  description: Take out the trash.
+  title: Take out the trash
+  description: Take out the garbage.
 - id: 2
-  title: Wash Car
-  description: Wash your car (that you don't have)
-- id: 3
-  title: Mow the lawn
-  description: But you live in an apartment!
-total: 3
+  title: Test
+  description: Test task
+total: 2

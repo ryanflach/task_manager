@@ -3,3 +3,16 @@ body {
   background-color: rgba(123, 128, 194, .4);
   background-blend-mode: screen;
 }
+
+th {
+  background-color: rgba(123, 128, 194, .2);
+}
+
+td {
+  background-color: rgba(0, 0, 0, .5);
+  color: white;
+}
+
+td a {
+  color: white;
+}
