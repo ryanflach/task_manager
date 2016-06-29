@@ -9,8 +9,12 @@ class UserSeesTasksTest < FeatureTest
 
     visit '/tasks'
 
-    assert page.has_content?('Mow the lawn')
+    within("##{task_manager.find(1).id}") do
+      assert page.has_content?('Mow the lawn')
+    end
+
     assert page.has_content?('Walk the dog')
+
   end
 
   def test_the_user_sees_the_dashboard_if_there_are_no_tasks
