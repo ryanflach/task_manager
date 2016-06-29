@@ -8,6 +8,11 @@ require 'minitest/pride'
 
 module TestHelpers
 
+  def teardown
+    task_manager.delete_all
+    super
+  end
+
   def task_manager
     database = YAML::Store.new('db/task_manager_test')
     @database ||= TaskManager.new(database)
