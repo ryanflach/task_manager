@@ -5,7 +5,7 @@ require File.expand_path("../../config/environment", __FILE__)
 
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'capybara'
+require 'capybara/dsl'
 require 'launchy'
 
 module TestHelpers
@@ -28,4 +28,5 @@ Capybara.app = TaskManagerApp
 
 class FeatureTest < Minitest::Test
   include Capybara::DSL
+  include TestHelpers
 end
