@@ -3,6 +3,10 @@ require_relative '../test_helper'
 class TaskManagerTest < Minitest::Test
   include TestHelpers
 
+  def current_task_id
+    task_manager.all.first.id
+  end
+
   def test_it_creates_a_task
     assert_equal 0, task_manager.all.count
 
@@ -10,7 +14,7 @@ class TaskManagerTest < Minitest::Test
 
     assert_equal 1, task_manager.all.count
 
-    task = task_manager.find(task_manager.all.count)
+    task = task_manager.find(current_task_id)
 
     assert_equal "Watch movies", task.title
     assert_equal "Yeah, right", task.description
@@ -29,7 +33,7 @@ class TaskManagerTest < Minitest::Test
 
   def test_it_can_find_a_task_object_by_id
     task_manager.create(title: "Play games", description: "Yeah, right")
-    task = task_manager.find(task_manager.all.count)
+    task = task_manager.find(current_task_id)
 
     expected = "Play games"
 
@@ -38,14 +42,14 @@ class TaskManagerTest < Minitest::Test
 
   def test_it_can_update_an_existing_task
     task_manager.create(title: "Play games", description: "Yeah, right")
-    task = task_manager.find(task_manager.all.count)
+    task = task_manager.find(current_task_id)
 
     expected = "Play games"
 
     assert_equal expected, task.title
 
-    task_manager.update(task_manager.all.count, {:title => "Read a book", :description => "Hamilton"})
-    task = task_manager.find(task_manager.all.count)
+    task_manager.update(current_task_id, {:title => "Read a book", :description => "Hamilton"})
+    task = task_manager.find(current_task_id)
 
     expected = "Read a book"
 
@@ -55,15 +59,15 @@ class TaskManagerTest < Minitest::Test
   def test_it_can_delete_an_existing_task
     task_manager.create(title: "Watch movies", description: "Yeah, right")
     task_manager.create(title: "Play games", description: "Yeah, right")
-    task_1 = task_manager.find(task_manager.all.count - 1)
-    task_2 = task_manager.find(task_manager.all.count)
+    task_1 = task_manager.find(current_task_id)
+    task_2 = task_manager.find(current_task_id + 1)
 
     assert_equal "Watch movies", task_1.title
     assert_equal "Play games", task_2.title
     assert_equal 2, task_manager.all.count
 
-    task_manager.destroy((task_manager.all.count - 1))
-    task = task_manager.find(task_manager.all.count + 1)
+    task_manager.destroy((current_task_id))
+    task = task_manager.find(current_task_id)
 
     assert_equal 1, task_manager.all.count
     assert_equal "Play games", task.title

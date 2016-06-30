@@ -7,6 +7,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require 'capybara'
 require 'launchy'
+require 'sqlite3'
 
 module TestHelpers
 
@@ -17,7 +18,8 @@ module TestHelpers
   end
 
   def task_manager
-    database = YAML::Store.new('db/task_manager_test')
+    database = SQLite3::Database.new("db/task_manager_test.db")
+    database.results_as_hash = true
     @database ||= TaskManager.new(database)
   end
 

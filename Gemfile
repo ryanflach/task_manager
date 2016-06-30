@@ -10,3 +10,6 @@ gem 'minitest'
 # For feature testing
 gem 'capybara', require: 'capybara/dsl'
 gem 'launchy'
+
+# For database
+gem 'sqlite3'

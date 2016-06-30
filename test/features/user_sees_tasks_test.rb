@@ -1,6 +1,11 @@
 require_relative '../test_helper'
 
 class UserSeesTasksTest < FeatureTest
+
+  def current_task_id
+    task_manager.all.first.id
+  end
+
   def test_test_the_user_sees_index_of_tasks
     task_1 = { title: 'Mow the lawn', description: 'Pick up dog toys first' }
     task_2 = { title: 'Walk the dog', description: 'Try Cheesman first' }
@@ -9,7 +14,7 @@ class UserSeesTasksTest < FeatureTest
 
     visit '/tasks'
 
-    within("##{task_manager.find(1).id}") do
+    within("##{current_task_id}") do
       assert page.has_content?('Mow the lawn')
     end
 
