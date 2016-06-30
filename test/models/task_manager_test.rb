@@ -28,7 +28,7 @@ class TaskManagerTest < Minitest::Test
 
     expected = "Watch movies"
 
-    assert_equal expected, task[0].title
+    assert_equal expected, task.first.title
   end
 
   def test_it_can_find_a_task_object_by_id
@@ -66,7 +66,7 @@ class TaskManagerTest < Minitest::Test
     assert_equal "Play games", task_2.title
     assert_equal 2, task_manager.all.count
 
-    task_manager.destroy((current_task_id))
+    task_manager.destroy(current_task_id)
     task = task_manager.find(current_task_id)
 
     assert_equal 1, task_manager.all.count
