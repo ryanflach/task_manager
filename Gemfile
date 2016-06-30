@@ -8,5 +8,5 @@ gem 'pry'
 gem 'minitest'
 
 # For feature testing
-gem 'capybara'
+gem 'capybara', require: 'capybara/dsl'
 gem 'launchy'
