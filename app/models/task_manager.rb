@@ -6,7 +6,7 @@ class TaskManager
   end
 
   def create(task)
-    database.execute("INSERT INTO tasks (title, description) VALUES (\"#{task[:title]}\", \"#{task[:description]}\");")
+    database.execute("INSERT INTO tasks (title, description) VALUES (?, ?) ;", task[:title], task[:description])
   end
 
   def raw_tasks
@@ -26,11 +26,11 @@ class TaskManager
   end
 
   def update(id, task)
-    database.execute("UPDATE tasks SET title=\"#{task[:title]}\", description=\"#{task[:description]}\" WHERE id=\"#{id}\";")
+    database.execute("UPDATE tasks SET title=?, description=? WHERE id=?;", task[:title], task[:description], id)
   end
 
   def destroy(id)
-    database.execute("DELETE FROM tasks WHERE id=\"#{id}\"")
+    database.execute("DELETE FROM tasks WHERE id= ?;", id)
   end
 
   def delete_all
